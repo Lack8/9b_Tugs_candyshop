@@ -129,3 +129,7 @@
     display: flex;
     justify-content: center;
 }
+.logo{
+    background-size: cover;
+    background-image: url(https://t4.ftcdn.net/jpg/04/98/10/27/360_F_498102777_FpnDFg3PU0n3J3McJvvh7lpdusukOFp2.jpg);
+}
