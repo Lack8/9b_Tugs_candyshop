@@ -77,7 +77,9 @@
     width: 33.33%;
     height: 100%;
     background-color: gold;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .body2{
@@ -89,6 +91,13 @@
     width: 33.33%;
     height: 100%;
     background-color: rgb(77, 66, 4);
+}
+.huree{
+    width: 90%;
+    height: 70%;
+    /* background-color: blue; */
+    border: 2px solid red;
+    border-radius: 10px;
 }
 .heseg1{
     width: 100%;
