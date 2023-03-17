@@ -114,6 +114,10 @@
     display: flex;
     justify-content: center;
 }
+.heseg3{
+    width: 100%;
+    height: 40%;
+}
 .zurag{
     width: 50%;
     height: 60%;
