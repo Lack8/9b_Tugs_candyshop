@@ -1,103 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-image: linear-gradient(to right, rgb(255, 192, 203), rgb(117, 105, 105));
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to right, rgb(255, 192, 203), rgb(117, 105, 105));
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form styling */
+    form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Sign Up Form</h1>
+    <form id="signup-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById("signup-form");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const nameValue = nameInput.value.trim();
+      const emailValue = emailInput.value.trim();
+      const passwordValue = passwordInput.value.trim();
+
+      if (nameValue === "" || emailValue === "" || passwordValue === "") {
+        showError("All fields are required");
+      } else if (!isValidEmail(emailValue)) {
+        showError("Please enter a valid email address");
+      } else {
+        alert(`Thank you for signing up, ${nameValue}!`);
+        form.reset();
       }
-      h1 {
-        text-align: center;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #ffffff;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      }
-      /* Form styling */
-      form {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-      }
-      label {
-        margin-bottom: 10px;
-      }
-      input[type="text"],
-      input[type="email"],
-      input[type="password"] {
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      input[type="submit"] {
-        padding: 10px;
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      input[type="submit"]:hover {
-        background-color: #3e8e41;
-      }
-      .error {
-        color: red;
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Sign Up Form</h1>
-      <form id="signup-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <input type="submit" value="Sign Up">
-      </form>
-    </div>
-    <script>
-      const form = document.getElementById("signup-form");
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const passwordInput = document.getElementById("password");
-      
-      form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const nameValue = nameInput.value.trim();
-        const emailValue = emailInput.value.trim();
-        const passwordValue = passwordInput.value.trim();
-        
-        if (nameValue === "" || emailValue === "" || passwordValue === "") {
-          showError("All fields are required");
-        } else if (!isValidEmail(emailValue)) {
-          showError("Please enter a valid email address");
-        } else {
-          alert(`Thank you for signing up, ${nameValue}!`);
-          form.reset();
-        }
-      });
-      
-      function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-      }
-      
-      function showError(message) {
-        const errorMessage = document.createElement("div");
-        errorMessage.classList.add("error");
-        errorMessage.innerText = message;
-        form.appendChild(errorMessage);
-      }
-    </script>
-  </body>
+    });
+
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function showError(message) {
+      const errorMessage = document.createElement("div");
+      errorMessage.classList.add("error");
+      errorMessage.innerText = message;
+      form.appendChild(errorMessage);
+    }
+  </script>
+</body>
+
 </html>
