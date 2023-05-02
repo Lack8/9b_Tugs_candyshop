@@ -6,6 +6,9 @@ body{
     padding-left: 20px;
     margin-top:20px;
     background:#151416;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
 }
 /**
  * Panels
